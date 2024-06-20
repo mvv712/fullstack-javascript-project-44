@@ -73,6 +73,14 @@ const getGameData = (mode = '') => {
 		progression.forEach((item, index) => question += `${index === missed ? '..' : item} `);
 
 		answer = progression[missed];
+	} else if (mode === 'prime') {
+		let divider = [];
+		for (let i = 1; i <= number1; i += 1) {
+			if (!(number1 % i)) divider.push(i);
+		}
+
+		question = number1;
+		answer = divider.length === 2 ? 'yes' : 'no';
 	}
 
 	return {question, answer};
@@ -87,6 +95,8 @@ const getGameTitle = (mode = '') => {
 		return 'Find the greatest common divisor of given numbers.';
 	} else if (mode === 'progression') {
 		return 'What number is missing in the progression?';
+	} else if (mode === 'prime') {
+		return 'Answer "yes" if given number is prime. Otherwise answer "no".'
 	}
 }
 
