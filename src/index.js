@@ -24,7 +24,7 @@ export const brainGames = (mode = '') => {
 				if (gameCount === 3) console.log(`Congratulations, ${user}!`);
 			} else {
 				is_true = false;
-				console.log(`'${answer}' is wrong answer ;( Correct answer was '${game.answer}'`);
+				console.log(`'${answer}' is wrong answer ;( Correct answer was '${game.answer}'.`);
 				console.log(`Let's try again, ${user}!`);
 			}
 		}
@@ -35,14 +35,13 @@ const getGameData = (mode = '') => {
 	let question = '';
 	let answer = '';
 
-	if (mode === 'even') {
-		const number = getNumber();
+	const number1 = getNumber();
+	const number2 = getNumber();
 
-		question = number;
-		answer = number % 2 ? 'no' : 'yes';
+	if (mode === 'even') {
+		question = number1;
+		answer = number1 % 2 ? 'no' : 'yes';
 	} else if (mode === 'calc') {
-		const number1 = getNumber();
-		const number2 = getNumber();
 		const operator = Array.from('+-*')[Math.trunc(Math.random() * 3)];
 
 		question = `${number1} ${operator} ${number2}`;
@@ -53,6 +52,16 @@ const getGameData = (mode = '') => {
 		} else if (operator === '*') {
 			answer = number1 * number2;
 		}
+	} else if (mode === 'gcd') {
+		let gcd = 1;
+		for (let i = gcd; i < Math.min(number1, number2); i += 1) {
+			if (!(number1 % i) && !(number2 % i) && i > gcd) {
+				gcd = i;
+			}
+		}
+
+		question = `${number1} ${number2}`;
+		answer = gcd;
 	}
 
 	return {question, answer};
@@ -63,6 +72,8 @@ const getGameTitle = (mode = '') => {
 		return 'Answer "yes" if the number is even, otherwise answer "no".';
 	} else if (mode === 'calc') {
 		return 'What is the result of the expression?';
+	} else if (mode === 'gcd') {
+		return 'Find the greatest common divisor of given numbers.';
 	}
 }
 
