@@ -62,6 +62,17 @@ const getGameData = (mode = '') => {
 
 		question = `${number1} ${number2}`;
 		answer = gcd;
+	} else if (mode === 'progression') {
+		let step = Math.trunc(Math.random() * 10);
+		let progression = [];
+		for (let i = 0; i < 10; i += 1) {
+			progression.push(number1 + i * step);
+		}
+
+		let missed = Math.trunc(Math.random() * 10);
+		progression.forEach((item, index) => question += `${index === missed ? '..' : item} `);
+
+		answer = progression[missed];
 	}
 
 	return {question, answer};
@@ -74,6 +85,8 @@ const getGameTitle = (mode = '') => {
 		return 'What is the result of the expression?';
 	} else if (mode === 'gcd') {
 		return 'Find the greatest common divisor of given numbers.';
+	} else if (mode === 'progression') {
+		return 'What number is missing in the progression?';
 	}
 }
 
