@@ -40,6 +40,19 @@ const getGameData = (mode = '') => {
 
 		question = number;
 		answer = number % 2 ? 'no' : 'yes';
+	} else if (mode === 'calc') {
+		const number1 = getNumber();
+		const number2 = getNumber();
+		const operator = Array.from('+-*')[Math.trunc(Math.random() * 3)];
+
+		question = `${number1} ${operator} ${number2}`;
+		if (operator === '+') {
+			answer = number1 + number2;
+		} else if (operator === '-') {
+			answer = number1 - number2;
+		} else if (operator === '*') {
+			answer = number1 * number2;
+		}
 	}
 
 	return {question, answer};
@@ -48,6 +61,8 @@ const getGameData = (mode = '') => {
 const getGameTitle = (mode = '') => {
 	if (mode === 'even') {
 		return 'Answer "yes" if the number is even, otherwise answer "no".';
+	} else if (mode === 'calc') {
+		return 'What is the result of the expression?';
 	}
 }
 
