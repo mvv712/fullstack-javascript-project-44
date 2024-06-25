@@ -20,5 +20,5 @@ const getBrainGcdData = () => {
 };
 
 export default () => {
-	brainGame(title, getBrainGcdData);
+  brainGame(title, getBrainGcdData);
 };

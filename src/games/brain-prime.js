@@ -5,7 +5,7 @@ const title = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const getBrainPrimeData = () => {
   const number = getNumber();
 
-  let divider = [];
+  const divider = [];
   for (let i = 1; i <= number; i += 1) {
     if (!(number % i)) divider.push(i);
   }
@@ -17,5 +17,5 @@ const getBrainPrimeData = () => {
 };
 
 export default () => {
-	brainGame(title, getBrainPrimeData);
+  brainGame(title, getBrainPrimeData);
 };

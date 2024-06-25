@@ -17,14 +17,14 @@ export const brainGame = (title, getGameData) => {
         console.log('Correct!');
         if (i === 2) console.log(`Congratulations, ${user}!`);
       } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${game.answer}".`);
-      console.log(`Let's try again, ${user}!`);
-      break;
+        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${game.answer}".`);
+        console.log(`Let's try again, ${user}!`);
+        break;
       }
     }
   }
 };
 
-export const getNumber = () => {
-  return Math.trunc(Math.random() * 100);
-}
+export const getNumber = (maxNumber = 100) => {
+  return Math.trunc(Math.random() * maxNumber);
+};
