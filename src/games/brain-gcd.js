@@ -7,7 +7,7 @@ const getBrainGcdData = () => {
 	const number2 = getNumber();
 
 	let gcd = 1;
-	for (let i = gcd; i < Math.min(number1, number2); i += 1) {
+	for (let i = gcd; i <= Math.min(number1, number2); i += 1) {
 		if (!(number1 % i) && !(number2 % i) && i > gcd) {
 			gcd = i;
 		}
