@@ -1,26 +1,25 @@
-import {brainGame, getNumber} from '../index.js';
+import { brainGame, getNumber } from '../index.js';
 
 const title = 'What number is missing in the progression?';
 
 const getBrainProgressionData = () => {
-	let number = getNumber();
-	let step = getNumber();
+  let number = getNumber();
+  let step = getNumber();
 
-	let progression = [];
-	for (let i = 0; i < 10; i += 1) {
-		progression.push(number + i * step);
-	}
+  let progression = [];
+  for (let i = 0; i < 10; i += 1) {
+    progression.push(number + i * step);
+  }
 
-	let question = '';
-	let missed = Math.trunc(Math.random() * 10);
-	progression.forEach((item, index) => question += `${index === missed ? '..' : item} `);
+  let question = '';
+  let missed = Math.trunc(Math.random() * 10);
+  progression.forEach((item, index) => question += `${index === missed ? '..' : item} `);
 
-	const answer = progression[missed];
+  const answer = progression[missed];
 
-	return {question, answer};
+  return { question, answer };
 };
 
 export default () => {
-	brainGame(title, getBrainProgressionData);
+  brainGame(title, getBrainProgressionData);
 };
-
