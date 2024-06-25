@@ -25,4 +25,7 @@ export const brainGame = (title, getGameData) => {
   }
 };
 
-export const getNumber = (maxNumber = 100) => { return Math.trunc(Math.random() * maxNumber) };
+export const getNumber = (maxNumber = 100) => {
+  const number = Math.trunc(Math.random() * maxNumber);
+  return number;
+};
