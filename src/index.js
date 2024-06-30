@@ -25,6 +25,6 @@ export const brainGame = (title, getGameData) => {
       break;
     }
 
-    if (userCount === 2) console.log(`Congratulations, ${user}!`);
+    console.log(`Congratulations, ${user}!`);
   }
 };
