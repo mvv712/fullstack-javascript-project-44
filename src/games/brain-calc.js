@@ -1,11 +1,12 @@
-import { brainGame, getNumber } from '../index.js';
+import { brainGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const title = 'What is the result of the expression?';
 
 const getBrainCalcData = () => {
-  const operator = Array.from('+-*')[Math.trunc(Math.random() * 3)];
-  const number1 = getNumber();
-  const number2 = getNumber();
+  const operator = Array.from('+-*')[getRandomNumber(3)];
+  const number1 = getRandomNumber();
+  const number2 = getRandomNumber();
 
   const question = `${number1} ${operator} ${number2}`;
   let answer = 0;

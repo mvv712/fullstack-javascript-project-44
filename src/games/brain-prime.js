@@ -1,4 +1,5 @@
-import { brainGame, getNumber } from '../index.js';
+import { brainGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const title = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -10,6 +11,7 @@ const getBrainPrimeData = () => {
     if (!(number % i)) divider.push(i);
   }
 
+  const number = getRandomNumber();
   const question = number;
   const answer = divider.length === 2 ? 'yes' : 'no';
 
