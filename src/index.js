@@ -10,8 +10,8 @@ export const brainGame = (title, getGameData) => {
   console.log(title);
 
   for (let i = 0; i < gameCount; i += 1) {
-    const userCount = 0;
-    const {gameQuestion, gameAnswer} = getGameData();
+    let userCount = 0;
+    const [gameQuestion, gameAnswer] = getGameData();
 
     console.log(`Question: ${gameQuestion}`);
     const answer = readlineSync.question(`Your answer: `);

@@ -6,6 +6,8 @@ const title = 'What number is missing in the progression?';
 const progressionLength = 10;
 
 const createProgression = () => {
+  const number = getRandomNumber();
+  const step = getRandomNumber(10);
   const progression = [];
 
   for (let i = 0; i < progressionLength; i += 1) {
@@ -16,18 +18,17 @@ const createProgression = () => {
 }
 
 const getBrainProgressionData = () => {
-  const number = getRandomNumber();
-  const step = getRandomNumber(10);
+  const progression = createProgression();
+  const missed = getRandomNumber(progressionLength);
 
   let question = '';
-  const missed = getRandomNumber(progressionLength);
   for (let index = 0; index < progression.length; index += 1) {
     question += `${index === missed ? '..' : progression[index]} `;
   }
 
   const answer = progression[missed];
 
-  return { question, answer };
+  return [ question, answer ];
 };
 
 export default () => {

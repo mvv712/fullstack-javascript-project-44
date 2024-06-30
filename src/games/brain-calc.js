@@ -24,7 +24,7 @@ const getBrainCalcData = () => {
   const question = `${number1} ${operator} ${number2}`;
   let answer = getCalcResult(operator, number1, number2);
 
-  return { question, answer };
+  return [ question, answer ];
 };
 
 export default () => {

@@ -19,7 +19,7 @@ const getBrainPrimeData = () => {
   const question = number;
   const answer = isPrime(number);
 
-  return { question, answer };
+  return [ question, answer ];
 };
 
 export default () => {

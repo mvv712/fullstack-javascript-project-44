@@ -22,7 +22,7 @@ const getBrainGcdData = () => {
   const question = `${number1} ${number2}`;
   const answer = getGcd(number1, number2);
 
-  return { question, answer };
+  return [ question, answer ];
 };
 
 export default () => {
