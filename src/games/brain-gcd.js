@@ -4,15 +4,19 @@ import getRandomNumber from '../utils.js';
 const title = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (number1, number2) => {
-  let gcd = 1;
+  if (number1 && number2) {
+    let gcd = 1;
 
-  for (let i = gcd; i <= Math.min(number1, number2); i += 1) {
-    if (!(number1 % i) && !(number2 % i) && i > gcd) {
-      gcd = i;
+    for (let i = gcd; i <= Math.min(number1, number2); i += 1) {
+      if (!(number1 % i) && !(number2 % i) && i > gcd) {
+        gcd = i;
+      }
     }
-  }
 
-  return gcd;
+    return gcd;
+  } else {
+    return undefined;
+  }
 };
 
 const getBrainGcdData = () => {
