@@ -1,31 +1,30 @@
 import readlineSync from 'readline-sync';
 
+const gameCount = 3;
+
 export const brainGame = (title, getGameData) => {
   console.log('Welcome to the Brain Games!');
   const user = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${user}!`);
 
-  if (title) {
-    console.log(title);
+  console.log(title);
 
-    const gameCount = 3;
-    for (let i = 0; i < gameCount; i += 1) {
-      const game = getGameData();
-      const answer = readlineSync.question(`Question: ${game.question}\nYour answer: `);
+  for (let i = 0; i < gameCount; i += 1) {
+    const userCount = 0;
+    const {gameQuestion, gameAnswer} = getGameData();
 
-      if (answer === String(game.answer)) {
-        console.log('Correct!');
-        if (i === 2) console.log(`Congratulations, ${user}!`);
-      } else {
-        console.log(`"${answer}" is wrong answer ;(. Correct answer was "${game.answer}".`);
-        console.log(`Let's try again, ${user}!`);
-        break;
-      }
+    console.log(`Question: ${gameQuestion}`);
+    const answer = readlineSync.question(`Your answer: `);
+
+    if (answer === String(gameAnswer)) {
+      userCount += 1;
+      console.log('Correct!');
+    } else {
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${gameAnswer}".`);
+      console.log(`Let's try again, ${user}!`);
+      break;
     }
-  }
-};
 
-export const getNumber = (maxNumber = 100) => {
-  const number = Math.trunc(Math.random() * maxNumber);
-  return number;
+    if (userCount === 2) console.log(`Congratulations, ${user}!`);
+  }
 };

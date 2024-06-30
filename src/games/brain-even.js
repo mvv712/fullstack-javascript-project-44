@@ -3,11 +3,15 @@ import { getRandomNumber } from '../utils.js';
 
 const title = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const isEven = (number) => {
+  return number % 2 ? 'no' : 'yes';
+}
+
 const getBrainEvenData = () => {
   const number = getRandomNumber();
 
   const question = number;
-  const answer = number % 2 ? 'no' : 'yes';
+  const answer = isEven(number);
 
   return { question, answer };
 };
