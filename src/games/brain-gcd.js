@@ -14,9 +14,9 @@ const getGcd = (number1, number2) => {
     }
 
     return gcd;
-  } else {
-    return undefined;
   }
+
+  return undefined;
 };
 
 const getBrainGcdData = () => {
