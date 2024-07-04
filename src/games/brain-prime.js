@@ -19,7 +19,7 @@ const getBrainPrimeData = () => {
   const number = getRandomNumber();
 
   const question = number;
-  const answer = isPrime(number) ? 'no' : 'yes';
+  const answer = isPrime(number) ? 'yes' : 'no';
 
   return [question, answer];
 };
