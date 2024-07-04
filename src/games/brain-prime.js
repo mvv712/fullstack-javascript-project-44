@@ -6,18 +6,20 @@ const title = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (number) => {
   const divider = [];
 
-  for (let i = 1; i <= number; i += 1) {
-    if (!(number % i)) divider.push(i);
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
+    };
   }
 
-  return divider.length === 2 ? 'yes' : 'no';
+  return true;
 };
 
 const getBrainPrimeData = () => {
   const number = getRandomNumber();
 
   const question = number;
-  const answer = isPrime(number);
+  const answer = isPrime(number) ? 'no' : 'yes';
 
   return [question, answer];
 };
