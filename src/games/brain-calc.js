@@ -12,7 +12,7 @@ const getCalcResult = (operator, number1, number2) => {
     case '*':
       return number1 * number2;
     default:
-      return undefined;
+      throw new Error('Не удалось определить оператор функции');
   }
 };
 
